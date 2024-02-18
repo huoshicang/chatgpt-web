@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  mongo:
+    image: mongo:latest
+    container_name: chatgptweb-database
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: chatgpt
+      TZ: Asia/Shanghai
+      LANG: C.UTF-8
+#    volumes:
+#      - mongodb_data:/data/db # 持久化数据到宿主机目录（假设你希望持久化数据）
+
+  app:
+    image: fondlike/chatgpt-web:latest
+    container_name: chatgpt-web-app
+    restart: unless-stopped
+    ports:
+      - "3002:3001"
+    depends_on:
+      - mongo
+    environment:
+      PORT: 3001
+      LOGGER: "dev"
+      SECRET: "Miss"
+      MONGO_URL: mongodb://root:chatgpt@mongo:27017
+      CHATGPTPROXY: "https://chatgptproxy-mnuvueudps.ap-southeast-1.fcapp.run/v1/chat/completions"
+
+
+#volumes:
+#  mongodb_data: {} # 定义一个数据卷来持久化MongoDB的数据

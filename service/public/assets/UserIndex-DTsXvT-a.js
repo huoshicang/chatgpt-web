@@ -1,0 +1,1 @@
+import{_ as e}from"./_plugin-vue_export-helper-x3n3nnut.js";import{o as c,c as o}from"./index-nHbdToTU.js";const r={},s={id:"userIndex"};function t(n,_){return c(),o("div",s," userIndex ")}const f=e(r,[["render",t],["__scopeId","data-v-29dc51c0"]]);export{f as default};

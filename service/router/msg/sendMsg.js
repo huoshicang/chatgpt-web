@@ -29,7 +29,7 @@ router.post('', async (req, res) => {
     const { msg_id, user_id, api_key, createDate, updateDate, ...requestData } = data;
 
     // 查找 API 密钥
-    const api_key_data = await connectToDatabase('查找一个', 'key', { encryption: api_key }, { key: 1 });
+    const api_key_data = await connectToDatabase('查找一个', 'key', { encryption: api_key, isDel: 0}, { key: 1 });
     const api_key_value = api_key_data?.key;
 
 
@@ -38,6 +38,8 @@ router.post('', async (req, res) => {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${api_key_value}`
     });
+
+    console.log(ress)
 
     if (ress.id){
       const assistantMessage = ress.choices[0].message

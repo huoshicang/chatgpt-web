@@ -15,7 +15,7 @@ services:
 #      - mongodb_data:/data/db # 持久化数据到宿主机目录（假设你希望持久化数据）
 
   app:
-    image: fondlike/chatgpt-web:v1.0
+    image: fondlike/chatgpt-web:v2.0
     container_name: chatgpt-web-app
     restart: unless-stopped
     ports:

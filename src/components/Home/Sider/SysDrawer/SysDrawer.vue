@@ -15,10 +15,17 @@
 
         <template #footer>
           <n-space>
+            <n-popconfirm @positive-click="logOut">
+              <template #trigger>
+                <n-button dashed type="error">退出</n-button>
+              </template>
+              你确定要退出吗
+            </n-popconfirm>
+
             <RouterLink v-if="userStore.userLoinData.userRole === 'admin'" to="/dashboard">
               <n-button type="primary"> 仪表盘</n-button>
             </RouterLink>
-            
+
             <n-button dashed @click="props.setShow">关闭</n-button>
           </n-space>
         </template>
@@ -31,10 +38,14 @@
 import { defineProps } from 'vue'
 import { useUserStore } from '@/stores/counter'
 import SystemSettings from '@/components/Home/Sider/SysDrawer/SystemSettings.vue'
-import InfoSettings from "@/components/Home/Sider/SysDrawer/InfoSettings.vue";
+import InfoSettings from '@/components/Home/Sider/SysDrawer/InfoSettings.vue'
+import { Api } from '@/api/api.js'
+import { useMessage } from 'naive-ui'
+import { useRouter } from "vue-router";
 
 const userStore = useUserStore()
-
+const router = useRouter()
+const message = useMessage()
 const props = defineProps({
   show: {
     type: Boolean, // 数据类型
@@ -48,6 +59,16 @@ const props = defineProps({
   }
 })
 
+const logOut = async () => {
+  const res = await Api.logout()
+
+  if (res.code === 200) {
+    message.success('退出成功')
+    router.push({path: '/log'})
+  } else {
+    message.error(res.message)
+  }
+}
 </script>
 
 <style scoped>

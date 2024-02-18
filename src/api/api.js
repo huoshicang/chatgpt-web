@@ -13,6 +13,10 @@ export const Api = {
   verify: async (data) => {
     return await MyGet("/verify", data);
   },
+  // 退出
+  logout: async (data) => {
+    return await MyGet("/logout", data);
+  },
   // 修改信息
   updateInfo: async (data) => {
     return await MyPost("/updateinfo", data);

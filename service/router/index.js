@@ -4,6 +4,7 @@ const router = express.Router();
 import RegisterRouter from "./log/Register.js"
 import LogInRouter from "./log/LogIn.js"
 import VerifyRouter from "./log/Verify.js"
+import LogOutRouter from "./log/LogOut.js"
 
 import AddChatRouter from "./chat/addChat.js";
 import GetChatRouter from "./chat/getChat.js";
@@ -22,6 +23,7 @@ import Dashboard from "./dashboard/index.js"
 router.use('/register', RegisterRouter);
 router.use('/login', LogInRouter);
 router.use('/verify', VerifyRouter);
+router.use('/logout', LogOutRouter);
 
 router.use('/addchat', AddChatRouter);
 router.use('/getchat', GetChatRouter);

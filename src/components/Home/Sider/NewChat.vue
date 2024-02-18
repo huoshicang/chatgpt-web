@@ -72,7 +72,7 @@ const model = ref({
   chatTitle: '',
   system: '',
   chatParameters: {
-    model: 'gpt-3.5-turbo-0613',
+    model: 'gpt-3.5-turbo',
     temperature: 0.8,
     top_p: 1
   }

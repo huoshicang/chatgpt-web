@@ -27,6 +27,8 @@
     </n-flex>
 
     <n-button type="primary" block secondary strong @click="handleValidateClick"> 登录</n-button>
+    <n-divider />
+    <n-button type="primary" block secondary strong @click="aaa"> 测试账号登录 </n-button>
   </div>
 </template>
 
@@ -83,6 +85,20 @@ const handleValidateClick = (e) => {
       }
     }
   })
+}
+
+const aaa = async () => {
+  formValue.account = 'user'
+  formValue.passWord = '123'
+  const res = await Api.login(formValue)
+  if (res.code === 200) {
+    message.success('登录成功')
+    userStore.userLoinData = res.data
+    await router.push('/')
+    setRremember()
+  } else {
+    message.error(res.message)
+  }
 }
 
 // 设置记住密码

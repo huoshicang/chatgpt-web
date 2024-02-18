@@ -8,7 +8,6 @@
 ![cover2](./docs/Snipaste_2024-02-18_19-50-34.png)
 ![cover2](./docs/Snipaste_2024-02-18_19-51-41.png)
 
-
 ## 介绍
 
 提供了非官方 `ChatGPT API` 方法

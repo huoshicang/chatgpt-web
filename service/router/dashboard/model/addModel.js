@@ -16,7 +16,7 @@ router.post('', async (req, res) => {
 
   const {modelName, modelGroup, Description} = req.body;
 
-  if (!modelName || !modelGroup || !Description) {
+  if (!modelName || !modelGroup) {
     sendValue.code = HTTP_STATUS_CODES.BAD_REQUEST;
     sendValue.message = '参数不全';
     return res.send(sendValue);

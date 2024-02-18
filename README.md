@@ -8,32 +8,7 @@
 ![cover2](./docs/Snipaste_2024-02-18_19-50-34.png)
 ![cover2](./docs/Snipaste_2024-02-18_19-51-41.png)
 
-- [ChatGPT Web](#chatgpt-web)
-    - [介绍](#介绍)
-    - [待实现路线](#待实现路线)
-    - [前置要求](#前置要求)
-        - [Node](#node)
-        - [PNPM](#pnpm)
-        - [填写密钥](#填写密钥)
-    - [安装依赖](#安装依赖)
-        - [后端](#后端)
-        - [前端](#前端)
-    - [测试环境运行](#测试环境运行)
-        - [后端服务](#后端服务)
-        - [前端网页](#前端网页)
-    - [环境变量](#环境变量)
-    - [打包](#打包)
-        - [使用 Docker](#使用-docker)
-            - [Docker 参数示例](#docker-参数示例)
-            - [Docker build \& Run](#docker-build--run)
-            - [Docker compose](#docker-compose)
-            - [防止爬虫抓取](#防止爬虫抓取)
-        - [使用 Railway 部署](#使用-railway-部署)
-            - [Railway 环境变量](#railway-环境变量)
-        - [使用 Sealos 部署](#使用-sealos-部署)
-        - [手动打包](#手动打包)
-            - [后端服务](#后端服务-1)
-            - [前端网页](#前端网页-1)
+
 ## 介绍
 
 提供了非官方 `ChatGPT API` 方法

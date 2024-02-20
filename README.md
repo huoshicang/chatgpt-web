@@ -3,6 +3,13 @@
 > 声明：此项目只发布于 GitHub，基于 MIT 协议，免费且作为开源学习使用。并且不会有任何形式的卖号、付费服务、讨论群、讨论组等行为。谨防受骗。
 > 
 > 体验地址：[ChatGPT Web](https://chat.fondlike.top/)
+> 
+> 参考项目：
+> 
+> [Chanzhaoyu/chatgpt-web](https://github.com/Chanzhaoyu/chatgpt-web)
+> 
+> [chatgpt-web-dev/chatgpt-web](https://github.com/chatgpt-web-dev/chatgpt-web)
+> 
 
 ![cover](./docs/Snipaste_2024-02-18_19-51-16.png)
 ![cover2](./docs/Snipaste_2024-02-18_19-50-34.png)
@@ -29,6 +36,32 @@
 /service/.env.example
 ```
 
+## 待实现路线
+[✓] 自定义模型
+
+[✓] 自定义密钥
+
+[✓] 多会话储存和上下文逻辑
+
+[✓] 界面主题
+
+[✓] 访问权限控制
+
+[✓] 模型管理
+
+[✓] 密钥管理
+
+[✗] 用户管理
+
+[✗] 对话管理
+
+[✗] 数据导入、导出
+
+[✗] 保存消息到本地图片
+
+[✗] 对代码等消息类型的格式化美化处理
+
+[✗] More...
 
 ## 前置要求
 
@@ -97,8 +130,10 @@ docker build -t chatgpt-web .
 
 # 前台运行
 docker run --name chatgpt-web --rm -it -p 127.0.0.1:3002:3002 --env PORT=3001 --env LOGGER="dev" --env SECRET="Miss" --env MONGO_URL="mongodb://root:chatgpt@mongo:27017" --env CHATGPTPROXY="https://chatgptproxy-mnuvueudps.ap-southeast-1.fcapp.run/v1/chat/completions" chatgpt-web
+
 # 后台运行
 docker run --name chatgpt-web --rm -it -p 127.0.0.1:3002:3002 --env PORT=3001 --env LOGGER="dev" --env SECRET="Miss" --env MONGO_URL="mongodb://root:chatgpt@mongo:27017" --env CHATGPTPROXY="https://chatgptproxy-mnuvueudps.ap-southeast-1.fcapp.run/v1/chat/completions" chatgpt-web -d
+
 # 运行地址
 http://localhost:3002/
 ```
@@ -171,3 +206,15 @@ pnpm run start
 
 2、根目录下运行以下命令，然后将 `dist` 文件夹内的文件复制到你网站服务的根目录下
 
+## 运行之后
+
+### 管理员
+可以使任意用户成为管理员，管理员可以管理用户、对话、模型、密钥等
+
+方法：使用工具连接数据库，找到 `users` 表，将 `userRole` 字段设置为 `admin`
+
+### 模型
+项目启动后，需要手动添加模型，并按照GPT3.5或GPT4进行分组
+
+### 密钥
+环境变量不提供密钥，需要自行添加密钥，密钥混淆可以自定义，并且在使用过程中，不会暴露密钥
